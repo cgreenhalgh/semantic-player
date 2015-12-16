@@ -57,6 +57,13 @@ Vagrant.configure(2) do |config|
 	cp resources/splash.png .
 	cordova-splash
 	
+	# missing various in lib...
+	#sudo npm install --global gulp
+	# error with node-sass 2.1.1
+	#npm install node-sass
+	npm install
+	gulp
+	
 	ionic build android
 		
 SHELL
