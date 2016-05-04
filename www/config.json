@@ -9,7 +9,7 @@
 		{
 			"name": "example",
 			"dymoUri": "dymos/example/dymo.json",
-			"renderingUri": "dymos/example/rendering.json"
+			"renderingUri": "rendering.json"
 		}
 	]
 }
