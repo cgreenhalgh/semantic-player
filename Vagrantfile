@@ -57,8 +57,20 @@ Vagrant.configure(2) do |config|
 
     cd /vagrant
     ionic platform add android
+    # ionic resources doesn't work at the moment?!
     ionic resources
-    echo 'do:\nionic build android'
+    # workaround...
+    sudo apt-get install -y imagemagick
+    sudo npm install cordova-splash --no-bin-links
+    #mkdir platforms/android/res/drawable
+    sudo npm install cordova-icon --no-bin-links
+    cp resources/icon.png .
+    ./node_modules/cordova-icon/bin/cordova-icon
+    # note: generated in platform/android/res/drawable.../icon.png
+    cp resources/splash.png .
+    ./node_modules/cordova-icon/bin/cordova-splash
+ 
+   echo 'do:\nionic build android'
 
   SHELL
 
