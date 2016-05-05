@@ -3,6 +3,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |v|
     v.memory = 1024
+
   end
 
   # web server for ionic
@@ -48,7 +49,7 @@ Vagrant.configure(2) do |config|
     echo 'do:\nandroid update sdk --no-ui --filter build-tools,platform-tool,android-23,extra-android-m2repository'
     # sdk tool? android list sdk -a; android update sdk -u -a N...?!
     # NB ionic doesn't work with RC versions of build-tools - need to manually
-    # install a stable one if needed
+    # install a stable one if needed (check filenames in .../build-tools/)
 
     # ubuntu for adb etc.
     sudo dpkg --add-architecture i386
@@ -57,7 +58,15 @@ Vagrant.configure(2) do |config|
 
     cd /vagrant
     ionic platform add android
+
+    # Android browsers up and including 4.4.4 probbly don't work with web audio
+    # use alternative browser view (based on Chromium)
+    echo 'Note: using crosswalk browser; to remove do ionic browser revert android'
+    ionic browser add crosswalk
+    # undo: ionic browser revert android
+
     # ionic resources doesn't work at the moment?!
+    # I wonder if i need to log into ionic
     ionic resources
     # workaround...
     sudo apt-get install -y imagemagick
@@ -70,7 +79,10 @@ Vagrant.configure(2) do |config|
     cp resources/splash.png .
     ./node_modules/cordova-icon/bin/cordova-splash
  
-   echo 'do:\nionic build android'
+    echo 'do:\nionic build android'
+
+
+    echo 'Note: to use USB install VirtualBox USB extension pack and ensure adb is run as root (sudo killall adb; sudo adb devices)'
 
   SHELL
 
