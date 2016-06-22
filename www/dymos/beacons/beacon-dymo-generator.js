@@ -3,13 +3,13 @@ var areaBeaconRange = 3; //distance in meters at which the audio associated with
 var maxAmplitude = 0.5; //maximum amplitude at which each clip is played back
 var uuid = "f7826da6-4fa2-4e98-8024-bc5b71e0893e";
 var beacons = [
-	{"major":51727,"minor":20124}, //this one is taken as the center beacon
-	{"major":14437,"minor":16445}, //all following ones are assumed to be arranged clockwise
-	{"major":12756,"minor":18735},
-	{"major":97625,"minor":28753},
-	{"major":14869,"minor":24875},
-	{"major":29375,"minor":97634},
-	{"major":23764,"minor":38754}
+	{"major":49933,"minor":16629}, // 'centre', SzyX //this one is taken as the center beacon
+	{"major":57811,"minor":32951}, // 'A', IXWy //all following ones are assumed to be arranged clockwise
+	{"major":63030,"minor":38015}, // 'B', PFZW
+	{"major":22570,"minor":15614}, // 'C', 6ipO
+	{"major":6286,"minor":31905}, // 'D', Qjrk
+	{"major":34762,"minor":8686}, // 'E', 5GOb
+	{"major":34015,"minor":52180} // 'F', 3VGI
 ];
 var dirtySoundFiles = [
 	"pad.m4a",

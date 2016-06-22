@@ -10,8 +10,8 @@
 					"name": "centerBeacon",
 					"@type": "Beacon",
 					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
-					"major": 51727,
-					"minor": 20124
+					"major": 49933,
+					"minor": 16629
 				}
 			],
 			"function": {
@@ -49,8 +49,8 @@
 					"name": "beacon0",
 					"@type": "Beacon",
 					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
-					"major": 14437,
-					"minor": 16445
+					"major": 57811,
+					"minor": 32951
 				}
 			],
 			"function": {
@@ -70,8 +70,8 @@
 					"name": "beacon1",
 					"@type": "Beacon",
 					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
-					"major": 12756,
-					"minor": 18735
+					"major": 63030,
+					"minor": 38015
 				}
 			],
 			"function": {
@@ -91,8 +91,8 @@
 					"name": "beacon2",
 					"@type": "Beacon",
 					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
-					"major": 97625,
-					"minor": 28753
+					"major": 22570,
+					"minor": 15614
 				}
 			],
 			"function": {
@@ -112,8 +112,8 @@
 					"name": "beacon3",
 					"@type": "Beacon",
 					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
-					"major": 14869,
-					"minor": 24875
+					"major": 6286,
+					"minor": 31905
 				}
 			],
 			"function": {
@@ -133,8 +133,8 @@
 					"name": "beacon4",
 					"@type": "Beacon",
 					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
-					"major": 29375,
-					"minor": 97634
+					"major": 34762,
+					"minor": 8686
 				}
 			],
 			"function": {
@@ -154,8 +154,8 @@
 					"name": "beacon5",
 					"@type": "Beacon",
 					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
-					"major": 23764,
-					"minor": 38754
+					"major": 34015,
+					"minor": 52180
 				}
 			],
 			"function": {
