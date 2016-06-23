@@ -20,7 +20,7 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0.5
 						}
 					]
 				},
@@ -35,7 +35,7 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0.5
 						}
 					]
 				},
@@ -50,7 +50,7 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0.5
 						}
 					]
 				},
@@ -65,7 +65,7 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0.5
 						}
 					]
 				},
@@ -80,7 +80,7 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0.5
 						}
 					]
 				},
@@ -95,7 +95,7 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0.5
 						}
 					]
 				}
@@ -117,7 +117,7 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0
 						}
 					]
 				},
@@ -132,7 +132,7 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0
 						}
 					]
 				},
@@ -147,7 +147,7 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0
 						}
 					]
 				},
@@ -162,7 +162,7 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0
 						}
 					]
 				},
@@ -177,7 +177,7 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0
 						}
 					]
 				},
@@ -192,11 +192,295 @@
 						},
 						{
 							"@type": "Amplitude",
-							"value": 1
+							"value": 0
 						}
 					]
 				}
+			],
+			"parameters": [
+				{
+					"@type": "Amplitude",
+					"value": 0
+				}
 			]
+		}
+	],
+	"mappings": [
+		{
+			"domainDims": [
+				{
+					"name": "Dirty",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Track0",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return a*b*0.5;"
+			},
+			"dymos": [
+				"dirtyArea0"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Dirty",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Track1",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return a*b*0.5;"
+			},
+			"dymos": [
+				"dirtyArea1"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Dirty",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Track2",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return a*b*0.5;"
+			},
+			"dymos": [
+				"dirtyArea2"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Dirty",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Track3",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return a*b*0.5;"
+			},
+			"dymos": [
+				"dirtyArea3"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Dirty",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Track4",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return a*b*0.5;"
+			},
+			"dymos": [
+				"dirtyArea4"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Dirty",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Track5",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return a*b*0.5;"
+			},
+			"dymos": [
+				"dirtyArea5"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Clean",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Compass",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"b",
+					"a"
+				],
+				"body": "return b*0.5*(Math.max(0,Math.min(1,1.5-2*Math.abs(((a+360-60*0)%360)-180)/60)));"
+			},
+			"dymos": [
+				"cleanArea0"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Clean",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Compass",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"b",
+					"a"
+				],
+				"body": "return b*0.5*(Math.max(0,Math.min(1,1.5-2*Math.abs(((a+360-60*1)%360)-180)/60)));"
+			},
+			"dymos": [
+				"cleanArea1"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Clean",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Compass",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"b",
+					"a"
+				],
+				"body": "return b*0.5*(Math.max(0,Math.min(1,1.5-2*Math.abs(((a+360-60*2)%360)-180)/60)));"
+			},
+			"dymos": [
+				"cleanArea2"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Clean",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Compass",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"b",
+					"a"
+				],
+				"body": "return b*0.5*(Math.max(0,Math.min(1,1.5-2*Math.abs(((a+360-60*3)%360)-180)/60)));"
+			},
+			"dymos": [
+				"cleanArea3"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Clean",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Compass",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"b",
+					"a"
+				],
+				"body": "return b*0.5*(Math.max(0,Math.min(1,1.5-2*Math.abs(((a+360-60*4)%360)-180)/60)));"
+			},
+			"dymos": [
+				"cleanArea4"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Clean",
+					"@type": "Parameter"
+				},
+				{
+					"name": "Compass",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"b",
+					"a"
+				],
+				"body": "return b*0.5*(Math.max(0,Math.min(1,1.5-2*Math.abs(((a+360-60*5)%360)-180)/60)));"
+			},
+			"dymos": [
+				"cleanArea5"
+			],
+			"range": "Amplitude"
 		}
 	]
 }

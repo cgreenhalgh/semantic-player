@@ -7,6 +7,81 @@
 		{
 			"domainDims": [
 				{
+					"name": "compass",
+					"@type": "CompassHeading"
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a-360*Math.floor(a/360);"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "Compass"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "compass slider",
+					"@type": "Slider",
+					"value": 0
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a*360;"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "Compass"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "centre",
+					"@type": "Slider",
+					"value": 0
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a;"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "Clean"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "edge",
+					"@type": "Slider",
+					"value": 1
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a;"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "Dirty"
+		},
+		{
+			"domainDims": [
+				{
 					"name": "centerBeacon",
 					"@type": "Beacon",
 					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
@@ -18,30 +93,33 @@
 				"args": [
 					"a"
 				],
-				"body": "return a<0.5?0.5:0;"
+				"body": "return a<0.5?1:0;"
 			},
 			"dymos": [
-				"clean"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "Clean"
 		},
 		{
 			"domainDims": [
 				{
 					"name": "centerBeacon",
-					"@type": "Beacon"
+					"@type": "Beacon",
+					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
+					"major": 49933,
+					"minor": 16629
 				}
 			],
 			"function": {
 				"args": [
 					"a"
 				],
-				"body": "return a<0.5?0:0.5;"
+				"body": "return a<0.5?0:1;"
 			},
 			"dymos": [
-				"dirty"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "Dirty"
 		},
 		{
 			"domainDims": [
@@ -57,12 +135,31 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(3-a, 0)/3*0.5;"
+				"body": "return Math.max(1.5-a, 0)/1.5;"
 			},
 			"dymos": [
-				"dirtyArea0"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "Track0"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "track slider0",
+					"@type": "Slider",
+					"value": 0
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a;"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "Track0"
 		},
 		{
 			"domainDims": [
@@ -78,12 +175,31 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(3-a, 0)/3*0.5;"
+				"body": "return Math.max(1.5-a, 0)/1.5;"
 			},
 			"dymos": [
-				"dirtyArea1"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "Track1"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "track slider1",
+					"@type": "Slider",
+					"value": 0
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a;"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "Track1"
 		},
 		{
 			"domainDims": [
@@ -99,12 +215,31 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(3-a, 0)/3*0.5;"
+				"body": "return Math.max(1.5-a, 0)/1.5;"
 			},
 			"dymos": [
-				"dirtyArea2"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "Track2"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "track slider2",
+					"@type": "Slider",
+					"value": 0
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a;"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "Track2"
 		},
 		{
 			"domainDims": [
@@ -120,12 +255,31 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(3-a, 0)/3*0.5;"
+				"body": "return Math.max(1.5-a, 0)/1.5;"
 			},
 			"dymos": [
-				"dirtyArea3"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "Track3"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "track slider3",
+					"@type": "Slider",
+					"value": 0
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a;"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "Track3"
 		},
 		{
 			"domainDims": [
@@ -141,12 +295,31 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(3-a, 0)/3*0.5;"
+				"body": "return Math.max(1.5-a, 0)/1.5;"
 			},
 			"dymos": [
-				"dirtyArea4"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "Track4"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "track slider4",
+					"@type": "Slider",
+					"value": 0
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a;"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "Track4"
 		},
 		{
 			"domainDims": [
@@ -162,120 +335,31 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(3-a, 0)/3*0.5;"
+				"body": "return Math.max(1.5-a, 0)/1.5;"
 			},
 			"dymos": [
-				"dirtyArea5"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "Track5"
 		},
 		{
 			"domainDims": [
 				{
-					"name": "compass",
-					"@type": "CompassHeading"
+					"name": "track slider5",
+					"@type": "Slider",
+					"value": 0
 				}
 			],
 			"function": {
 				"args": [
 					"a"
 				],
-				"body": "return (30-Math.min(Math.abs(a-0),30))/30*0.5;"
+				"body": "return a;"
 			},
 			"dymos": [
-				"cleanArea0"
+				"beacons"
 			],
-			"range": "Amplitude"
-		},
-		{
-			"domainDims": [
-				{
-					"name": "compass",
-					"@type": "CompassHeading"
-				}
-			],
-			"function": {
-				"args": [
-					"a"
-				],
-				"body": "return (30-Math.min(Math.abs(a-6),30))/30*0.5;"
-			},
-			"dymos": [
-				"cleanArea1"
-			],
-			"range": "Amplitude"
-		},
-		{
-			"domainDims": [
-				{
-					"name": "compass",
-					"@type": "CompassHeading"
-				}
-			],
-			"function": {
-				"args": [
-					"a"
-				],
-				"body": "return (30-Math.min(Math.abs(a-12),30))/30*0.5;"
-			},
-			"dymos": [
-				"cleanArea2"
-			],
-			"range": "Amplitude"
-		},
-		{
-			"domainDims": [
-				{
-					"name": "compass",
-					"@type": "CompassHeading"
-				}
-			],
-			"function": {
-				"args": [
-					"a"
-				],
-				"body": "return (30-Math.min(Math.abs(a-18),30))/30*0.5;"
-			},
-			"dymos": [
-				"cleanArea3"
-			],
-			"range": "Amplitude"
-		},
-		{
-			"domainDims": [
-				{
-					"name": "compass",
-					"@type": "CompassHeading"
-				}
-			],
-			"function": {
-				"args": [
-					"a"
-				],
-				"body": "return (30-Math.min(Math.abs(a-24),30))/30*0.5;"
-			},
-			"dymos": [
-				"cleanArea4"
-			],
-			"range": "Amplitude"
-		},
-		{
-			"domainDims": [
-				{
-					"name": "compass",
-					"@type": "CompassHeading"
-				}
-			],
-			"function": {
-				"args": [
-					"a"
-				],
-				"body": "return (30-Math.min(Math.abs(a-30),30))/30*0.5;"
-			},
-			"dymos": [
-				"cleanArea5"
-			],
-			"range": "Amplitude"
+			"range": "Track5"
 		}
 	]
 }
