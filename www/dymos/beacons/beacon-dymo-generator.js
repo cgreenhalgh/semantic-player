@@ -69,6 +69,23 @@ for (var i = 0; i < dirtySoundFiles.length; i++) {
 	});
 }
 compassRayWidth = 360 / cleanSoundFiles.length;
+function smooth(expression, delta, interval) {
+	// function tries to smooth result
+//	return '(function(self) { var $injector = angular.injector([\'ng\']); $injector.invoke(function($interval) {'+
+//	'var target = '+expression+'; if(self.smoothCurrent===undefined || Math.abs(target-self.smoothCurrent)<'+delta+')'+
+//	'{self.smoothCurrent=target; if(self.smoothInterval!==undefined){ $interval.cancel(self.smoothInterval); delete self.smoothInterval; console.log(\'cancel smooth\'); }; }; '+
+//	'self.smoothCurrent=(1-'+alpha+')*self.smoothCurrent+'+alpha+'*target; if(self.smoothInterval===undefined) {'+
+//	'self.smoothInterval = $interval(function() { console.log(\'smooth!\'); self.updateParameter(); }, '+interval+'); }; }); return self.smoothCurrent; })(this);';
+	return '(function(self) { '+
+	'var target = '+expression+'; if(self.smoothCurrent===undefined || Math.abs(target-self.smoothCurrent)<'+delta+')'+
+	'{self.smoothCurrent=target; if(self.smoothInterval!==undefined && '+
+	'self.smoothInterval!==null){ clearInterval(self.smoothInterval); self.smoothInterval=null; }; } '+
+	'else { self.smoothCurrent=Number(self.smoothCurrent)+(target>self.smoothCurrent ? '+delta+' : -'+delta+'); '+
+	'console.log(\'smooth -> \'+self.smoothCurrent+\' vs \'+target); '+
+	'if(self.smoothInterval===undefined || self.smoothInterval===null) {'+
+	'self.smoothInterval = setInterval(function() { console.log(\'smooth!\'); self.updateParameter(); }, '+
+	interval+'); }; }; return self.smoothCurrent; })(this);';
+}
 for (var i = 0; i < cleanSoundFiles.length; i++) {
 	dymo["parts"][1]["parts"].push({
 		"@id":"cleanArea"+i,
@@ -80,12 +97,18 @@ for (var i = 0; i < cleanSoundFiles.length; i++) {
 		]
 	});
 	dymo.mappings.push({
-		"domainDims":[{"name":"Clean","@type":"Parameter"},{"name":"Compass","@type":"Parameter"}],
+		"domainDims":[{"name":"CleanSmooth","@type":"Parameter"},{"name":"Compass","@type":"Parameter"}],
 		"function":{"args":["b","a"],"body":"return b*"+maxAmplitude+"*(Math.max(0,Math.min(1,1.5-2*Math.abs(((a+360-"+compassRayWidth+"*"+i+")%360)-180)/"+compassRayWidth+")));"},
 		"dymos":["cleanArea"+i],
 		"range":"Amplitude"
 	});
 }
+dymo.mappings.push({
+	"domainDims":[{"name":"Clean","@type":"Parameter"}],
+	"function":{"args":["a"],"body":"return "+smooth('a', 0.05, 100)},
+	"dymos":["beacons"],
+	"range":"CleanSmooth"
+});
 
 //generate rendering
 var rendering = {
@@ -121,6 +144,16 @@ var rendering = {
 		"function":{"args":["a"],"body":"return a;"},
 		"dymos":["beacons"],
 		"range":"Clean"
+	},
+	{
+		"domainDims":[{
+			"name":"centre smooth",
+			"@type": "Slider",
+			"value":0
+		}],
+		"function":{"args":["a"],"body":"return a;"},
+		"dymos":["beacons"],
+		"range":"CleanSmooth"
 	},
 	{
 		"domainDims":[{

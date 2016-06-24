@@ -63,6 +63,25 @@
 		{
 			"domainDims": [
 				{
+					"name": "centre smooth",
+					"@type": "Slider",
+					"value": 0
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a;"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "CleanSmooth"
+		},
+		{
+			"domainDims": [
+				{
 					"name": "edge",
 					"@type": "Slider",
 					"value": 1
