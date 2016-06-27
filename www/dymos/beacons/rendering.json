@@ -63,25 +63,6 @@
 		{
 			"domainDims": [
 				{
-					"name": "centre smooth",
-					"@type": "Slider",
-					"value": 0
-				}
-			],
-			"function": {
-				"args": [
-					"a"
-				],
-				"body": "return a;"
-			},
-			"dymos": [
-				"beacons"
-			],
-			"range": "CleanSmooth"
-		},
-		{
-			"domainDims": [
-				{
 					"name": "edge",
 					"@type": "Slider",
 					"value": 1
@@ -101,6 +82,44 @@
 		{
 			"domainDims": [
 				{
+					"name": "centre smooth",
+					"@type": "Slider",
+					"value": 0
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a;"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "CleanSmooth"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "edge smooth",
+					"@type": "Slider",
+					"value": 1
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return a;"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "DirtySmooth"
+		},
+		{
+			"domainDims": [
+				{
 					"name": "centerBeacon",
 					"@type": "Beacon",
 					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
@@ -112,7 +131,7 @@
 				"args": [
 					"a"
 				],
-				"body": "return a<0.5?1:0;"
+				"body": "return a<0.8?1:0;"
 			},
 			"dymos": [
 				"beacons"
@@ -133,7 +152,7 @@
 				"args": [
 					"a"
 				],
-				"body": "return a<0.5?0:1;"
+				"body": "return a<0.8?0:1;"
 			},
 			"dymos": [
 				"beacons"
@@ -154,7 +173,7 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(1.5-a, 0)/1.5;"
+				"body": "return pwl(a,[1,1,4,0],0);"
 			},
 			"dymos": [
 				"beacons"
@@ -194,7 +213,7 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(1.5-a, 0)/1.5;"
+				"body": "return pwl(a,[1,1,4,0],0);"
 			},
 			"dymos": [
 				"beacons"
@@ -234,7 +253,7 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(1.5-a, 0)/1.5;"
+				"body": "return pwl(a,[1,1,1.5,0],0);"
 			},
 			"dymos": [
 				"beacons"
@@ -274,7 +293,7 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(1.5-a, 0)/1.5;"
+				"body": "return pwl(a,[1,1,4,0],0);"
 			},
 			"dymos": [
 				"beacons"
@@ -314,7 +333,7 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(1.5-a, 0)/1.5;"
+				"body": "return pwl(a,[1,1,4,0],0);"
 			},
 			"dymos": [
 				"beacons"
@@ -354,7 +373,7 @@
 				"args": [
 					"a"
 				],
-				"body": "return Math.max(1.5-a, 0)/1.5;"
+				"body": "return pwl(a,[1,1,4,0],0);"
 			},
 			"dymos": [
 				"beacons"
