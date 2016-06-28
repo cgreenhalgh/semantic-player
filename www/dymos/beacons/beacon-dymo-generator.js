@@ -34,7 +34,7 @@ var dirtySoundFiles = [
 var cleanSoundFiles = [
 	"pad.m4a",
 	"piano.m4a",
-	"blib.m4a",
+	null,
 	"drums.m4a",
 	"bass.m4a",
 	"flav.m4a"
@@ -100,6 +100,8 @@ for (var i = 0; i < dirtySoundFiles.length; i++) {
 }
 
 for (var i = 0; i < cleanSoundFiles.length; i++) {
+	if (cleanSoundFiles[i]===null)
+		continue;
 	dymo["parts"][1]["parts"].push({
 		"@id":"cleanArea"+i,
 		"@type":"Dymo",

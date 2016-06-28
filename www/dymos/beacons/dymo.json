@@ -137,21 +137,6 @@
 					]
 				},
 				{
-					"@id": "cleanArea2",
-					"@type": "Dymo",
-					"source": "blib.m4a",
-					"parameters": [
-						{
-							"@type": "Loop",
-							"value": 1
-						},
-						{
-							"@type": "Amplitude",
-							"value": 0
-						}
-					]
-				},
-				{
 					"@id": "cleanArea3",
 					"@type": "Dymo",
 					"source": "drums.m4a",
@@ -387,29 +372,6 @@
 			},
 			"dymos": [
 				"cleanArea1"
-			],
-			"range": "Amplitude"
-		},
-		{
-			"domainDims": [
-				{
-					"name": "CleanSmooth",
-					"@type": "Parameter"
-				},
-				{
-					"name": "Compass",
-					"@type": "Parameter"
-				}
-			],
-			"function": {
-				"args": [
-					"b",
-					"a"
-				],
-				"body": "return b*0.5*pwl((a-233.0362434679265+180)-360*Math.floor((a-233.0362434679265+180)/360)-180, [-14.42641702239966,0,-9.731475473157627,1,9.731475473157627,1,14.42641702239966,0],0);"
-			},
-			"dymos": [
-				"cleanArea2"
 			],
 			"range": "Amplitude"
 		},
