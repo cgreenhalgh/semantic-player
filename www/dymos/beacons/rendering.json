@@ -134,9 +134,9 @@
 				"body": "return a<0.8?1:0;"
 			},
 			"dymos": [
-				"beacons"
+				"clean"
 			],
-			"range": "Clean"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -155,9 +155,9 @@
 				"body": "return a<0.8?0:1;"
 			},
 			"dymos": [
-				"beacons"
+				"warped"
 			],
-			"range": "Dirty"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -176,9 +176,9 @@
 				"body": "return pwl(a,[1,1,4,0],0);"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea0"
 			],
-			"range": "Track0"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -216,9 +216,9 @@
 				"body": "return pwl(a,[1,1,4,0],0);"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea1"
 			],
-			"range": "Track1"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -256,9 +256,9 @@
 				"body": "return pwl(a,[1,1,1.5,0],0);"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea2"
 			],
-			"range": "Track2"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -296,9 +296,9 @@
 				"body": "return pwl(a,[1,1,4,0],0);"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea3"
 			],
-			"range": "Track3"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -336,9 +336,9 @@
 				"body": "return pwl(a,[1,1,4,0],0);"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea4"
 			],
-			"range": "Track4"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -376,9 +376,9 @@
 				"body": "return pwl(a,[1,1,4,0],0);"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea5"
 			],
-			"range": "Track5"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
