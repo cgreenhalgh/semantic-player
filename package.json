@@ -27,7 +27,7 @@
     "cordova-plugin-device-orientation",
     "cordova-plugin-geolocation",
     {
-      "locator": "https://github.com/petermetz/cordova-plugin-ibeacon.git",
+      "locator": "https://github.com/cgreenhalgh/cordova-plugin-ibeacon.git",
       "id": "com.unarin.cordova.beacon"
     }
   ],
