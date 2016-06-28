@@ -113,16 +113,29 @@ for (var i = 0; i < cleanSoundFiles.length; i++) {
 	});
 }
 
+function smooth(expression, delta, interval) {
+	// function tries to smooth result
+	return '(function(self) { '+
+	'var target = '+expression+'; if(self.smoothCurrent===undefined || Math.abs(target-self.smoothCurrent)<'+delta+')'+
+	'{self.smoothCurrent=target; if(self.smoothInterval!==undefined && '+
+	'self.smoothInterval!==null){ clearInterval(self.smoothInterval); self.smoothInterval=null; }; } '+
+	'else { self.smoothCurrent=Number(self.smoothCurrent)+(target>self.smoothCurrent ? '+delta+' : -'+delta+'); '+
+	'/*console.log(\'smooth -> \'+self.smoothCurrent+\' vs \'+target);*/ '+
+	'if(self.smoothInterval===undefined || self.smoothInterval===null) {'+
+	'self.smoothInterval = setInterval(function() { /*console.log(\'smooth!\');*/ self.updateParameter(); }, '+
+	interval+'); }; }; return self.smoothCurrent; })(this);';
+}
+
 // can't map to range until it is implicitly created!
 dymo.mappings.push({
-	"domainDims":[{"name":"Clean","@type":"Parameter","smooth":true,"average":3}],
-	"function":{"args":["a"],"body":"return a;"},
+	"domainDims":[{"name":"Clean","@type":"Parameter"}], //,"smooth":true,"average":3
+	"function":{"args":["a"],"body":"return "+smooth("a",0.05,100)+";"},
 	"dymos":["beacons"], // "clean"
 	"range":"cleanAmplitude" // "Amplitude"
 });
 dymo.mappings.push({
-	"domainDims":[{"name":"Dirty","@type":"Parameter","smooth":true,"average":3}],
-	"function":{"args":["a"],"body":"return a;"},
+	"domainDims":[{"name":"Dirty","@type":"Parameter"}], //,"smooth":true,"average":3
+	"function":{"args":["a"],"body":"return "+smooth("a",0.05,100)+";"},
 	"dymos":["beacons"], // "warped"
 	"range":"warpedAmplitude" // "Amplitude"
 });
@@ -198,6 +211,7 @@ rendering["mappings"].push({
 	"dymos":["beacons"],
 	"range":"Dirty"
 });
+
 //add mappings for beacon areas
 for (var i = 0; i < warpedSoundFiles.length; i++) {
 	if (false) rendering["mappings"].push({

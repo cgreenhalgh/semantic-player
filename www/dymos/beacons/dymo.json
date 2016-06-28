@@ -448,16 +448,14 @@
 			"domainDims": [
 				{
 					"name": "Clean",
-					"@type": "Parameter",
-					"smooth": true,
-					"average": 3
+					"@type": "Parameter"
 				}
 			],
 			"function": {
 				"args": [
 					"a"
 				],
-				"body": "return a;"
+				"body": "return (function(self) { var target = a; if(self.smoothCurrent===undefined || Math.abs(target-self.smoothCurrent)<0.05){self.smoothCurrent=target; if(self.smoothInterval!==undefined && self.smoothInterval!==null){ clearInterval(self.smoothInterval); self.smoothInterval=null; }; } else { self.smoothCurrent=Number(self.smoothCurrent)+(target>self.smoothCurrent ? 0.05 : -0.05); console.log('smooth -> '+self.smoothCurrent+' vs '+target); if(self.smoothInterval===undefined || self.smoothInterval===null) {self.smoothInterval = setInterval(function() { console.log('smooth!'); self.updateParameter(); }, 100); }; }; return self.smoothCurrent; })(this);;"
 			},
 			"dymos": [
 				"beacons"
@@ -468,16 +466,14 @@
 			"domainDims": [
 				{
 					"name": "Dirty",
-					"@type": "Parameter",
-					"smooth": true,
-					"average": 3
+					"@type": "Parameter"
 				}
 			],
 			"function": {
 				"args": [
 					"a"
 				],
-				"body": "return a;"
+				"body": "return (function(self) { var target = a; if(self.smoothCurrent===undefined || Math.abs(target-self.smoothCurrent)<0.05){self.smoothCurrent=target; if(self.smoothInterval!==undefined && self.smoothInterval!==null){ clearInterval(self.smoothInterval); self.smoothInterval=null; }; } else { self.smoothCurrent=Number(self.smoothCurrent)+(target>self.smoothCurrent ? 0.05 : -0.05); console.log('smooth -> '+self.smoothCurrent+' vs '+target); if(self.smoothInterval===undefined || self.smoothInterval===null) {self.smoothInterval = setInterval(function() { console.log('smooth!'); self.updateParameter(); }, 100); }; }; return self.smoothCurrent; })(this);;"
 			},
 			"dymos": [
 				"beacons"
