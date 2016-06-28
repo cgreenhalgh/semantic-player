@@ -110,15 +110,15 @@ for (var i = 0; i < cleanSoundFiles.length; i++) {
 // can't map to range until it is implicitly created!
 dymo.mappings.push({
 	"domainDims":[{"name":"Clean","@type":"Parameter","smooth":true,"average":3}],
-	"function":{"args":["a"],"body":"return a"},
-	"dymos":["beacons"],
-	"range":"CleanSmooth"
+	"function":{"args":["a"],"body":"return a;"},
+	"dymos":["clean"],
+	"range":"Amplitude"
 });
 dymo.mappings.push({
 	"domainDims":[{"name":"Dirty","@type":"Parameter","smooth":true,"average":3}],
-	"function":{"args":["a"],"body":"return a"},
-	"dymos":["beacons"],
-	"range":"DirtySmooth"
+	"function":{"args":["a"],"body":"return a;"},
+	"dymos":["warped"],
+	"range":"Amplitude"
 });
 
 //generate rendering
@@ -165,26 +165,6 @@ var rendering = {
 		"function":{"args":["a"],"body":"return a;"},
 		"dymos":["beacons"],
 		"range":"Dirty"
-	},
-	{
-		"domainDims":[{
-			"name":"centre smooth",
-			"@type": "Slider",
-			"value":0
-		}],
-		"function":{"args":["a"],"body":"return a;"},
-		"dymos":["beacons"],
-		"range":"CleanSmooth"
-	},
-	{
-		"domainDims":[{
-			"name":"edge smooth",
-			"@type": "Slider",
-			"value":1
-		}],
-		"function":{"args":["a"],"body":"return a;"},
-		"dymos":["beacons"],
-		"range":"DirtySmooth"
 	}]
 };
 //add mappings for center beacon
@@ -197,8 +177,8 @@ rendering["mappings"].push({
 		"minor":beacons[0].minor
 	}],
 	"function":{"args":["a"],"body":"return a<"+centerBeaconRange+"?1:0;"},
-	"dymos":["clean"],
-	"range":"Amplitude"
+	"dymos":["beacons"],
+	"range":"Clean"
 });
 rendering["mappings"].push({
 	"domainDims":[{
@@ -209,8 +189,8 @@ rendering["mappings"].push({
                 "minor":beacons[0].minor
 	}],
 	"function":{"args":["a"],"body":"return a<"+centerBeaconRange+"?0:1;"},
-	"dymos":["warped"],
-	"range":"Amplitude"
+	"dymos":["beacons"],
+	"range":"Dirty"
 });
 //add mappings for beacon areas
 for (var i = 0; i < warpedSoundFiles.length; i++) {
@@ -233,8 +213,8 @@ for (var i = 0; i < warpedSoundFiles.length; i++) {
 			"value":0
 		}],
 		"function":{"args":["a"],"body":"return a;"},
-		"dymos":["beacons"],
-		"range":"Track"+i
+		"dymos":["warpedArea"+i],
+		"range":"Amplitude"
 	});
 }
 

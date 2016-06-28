@@ -294,12 +294,12 @@
 				"args": [
 					"a"
 				],
-				"body": "return a"
+				"body": "return a;"
 			},
 			"dymos": [
-				"beacons"
+				"clean"
 			],
-			"range": "CleanSmooth"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -314,12 +314,12 @@
 				"args": [
 					"a"
 				],
-				"body": "return a"
+				"body": "return a;"
 			},
 			"dymos": [
-				"beacons"
+				"warped"
 			],
-			"range": "DirtySmooth"
+			"range": "Amplitude"
 		}
 	]
 }

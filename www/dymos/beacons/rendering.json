@@ -82,44 +82,6 @@
 		{
 			"domainDims": [
 				{
-					"name": "centre smooth",
-					"@type": "Slider",
-					"value": 0
-				}
-			],
-			"function": {
-				"args": [
-					"a"
-				],
-				"body": "return a;"
-			},
-			"dymos": [
-				"beacons"
-			],
-			"range": "CleanSmooth"
-		},
-		{
-			"domainDims": [
-				{
-					"name": "edge smooth",
-					"@type": "Slider",
-					"value": 1
-				}
-			],
-			"function": {
-				"args": [
-					"a"
-				],
-				"body": "return a;"
-			},
-			"dymos": [
-				"beacons"
-			],
-			"range": "DirtySmooth"
-		},
-		{
-			"domainDims": [
-				{
 					"name": "centerBeacon",
 					"@type": "Beacon",
 					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
@@ -134,9 +96,9 @@
 				"body": "return a<0.8?1:0;"
 			},
 			"dymos": [
-				"clean"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "Clean"
 		},
 		{
 			"domainDims": [
@@ -155,9 +117,9 @@
 				"body": "return a<0.8?0:1;"
 			},
 			"dymos": [
-				"warped"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "Dirty"
 		},
 		{
 			"domainDims": [
@@ -195,9 +157,9 @@
 				"body": "return a;"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea0"
 			],
-			"range": "Track0"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -235,9 +197,9 @@
 				"body": "return a;"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea1"
 			],
-			"range": "Track1"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -275,9 +237,9 @@
 				"body": "return a;"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea2"
 			],
-			"range": "Track2"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -315,9 +277,9 @@
 				"body": "return a;"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea3"
 			],
-			"range": "Track3"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -355,9 +317,9 @@
 				"body": "return a;"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea4"
 			],
-			"range": "Track4"
+			"range": "Amplitude"
 		},
 		{
 			"domainDims": [
@@ -395,9 +357,9 @@
 				"body": "return a;"
 			},
 			"dymos": [
-				"beacons"
+				"warpedArea5"
 			],
-			"range": "Track5"
+			"range": "Amplitude"
 		}
 	]
 }
