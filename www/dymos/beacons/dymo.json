@@ -194,15 +194,158 @@
 		{
 			"domainDims": [
 				{
-					"name": "Compass",
+					"name": "warpedAmplitude",
+					"@type": "Parameter"
+				},
+				{
+					"name": "warpedArea0Amplitude",
 					"@type": "Parameter"
 				}
 			],
 			"function": {
 				"args": [
-					"a"
+					"a",
+					"b"
 				],
-				"body": "return 0.5*pwl((a-114.96375653207349+180)-360*Math.floor((a-114.96375653207349+180)/360)-180, [-34.44990198795349,0,-9.731475473157627,1,9.731475473157627,1,34.44990198795349,0],0);"
+				"body": "return a*b;"
+			},
+			"dymos": [
+				"warpedArea0"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "warpedAmplitude",
+					"@type": "Parameter"
+				},
+				{
+					"name": "warpedArea1Amplitude",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return a*b;"
+			},
+			"dymos": [
+				"warpedArea1"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "warpedAmplitude",
+					"@type": "Parameter"
+				},
+				{
+					"name": "warpedArea2Amplitude",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return a*b;"
+			},
+			"dymos": [
+				"warpedArea2"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "warpedAmplitude",
+					"@type": "Parameter"
+				},
+				{
+					"name": "warpedArea3Amplitude",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return a*b;"
+			},
+			"dymos": [
+				"warpedArea3"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "warpedAmplitude",
+					"@type": "Parameter"
+				},
+				{
+					"name": "warpedArea4Amplitude",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return a*b;"
+			},
+			"dymos": [
+				"warpedArea4"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "warpedAmplitude",
+					"@type": "Parameter"
+				},
+				{
+					"name": "warpedArea5Amplitude",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return a*b;"
+			},
+			"dymos": [
+				"warpedArea5"
+			],
+			"range": "Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "Compass",
+					"@type": "Parameter"
+				},
+				{
+					"name": "cleanAmplitude",
+					"@type": "Parameter"
+				}
+			],
+			"function": {
+				"args": [
+					"a",
+					"b"
+				],
+				"body": "return b*0.5*pwl((a-114.96375653207349+180)-360*Math.floor((a-114.96375653207349+180)/360)-180, [-34.44990198795349,0,-9.731475473157627,1,9.731475473157627,1,34.44990198795349,0],0);"
 			},
 			"dymos": [
 				"cleanArea0"
@@ -214,13 +357,18 @@
 				{
 					"name": "Compass",
 					"@type": "Parameter"
+				},
+				{
+					"name": "cleanAmplitude",
+					"@type": "Parameter"
 				}
 			],
 			"function": {
 				"args": [
-					"a"
+					"a",
+					"b"
 				],
-				"body": "return 0.5*pwl((a-174+180)-360*Math.floor((a-174+180)/360)-180, [-53.13010235415598,0,-18.43494882292201,1,18.43494882292201,1,53.13010235415598,0],0);"
+				"body": "return b*0.5*pwl((a-174+180)-360*Math.floor((a-174+180)/360)-180, [-53.13010235415598,0,-18.43494882292201,1,18.43494882292201,1,53.13010235415598,0],0);"
 			},
 			"dymos": [
 				"cleanArea1"
@@ -232,13 +380,18 @@
 				{
 					"name": "Compass",
 					"@type": "Parameter"
+				},
+				{
+					"name": "cleanAmplitude",
+					"@type": "Parameter"
 				}
 			],
 			"function": {
 				"args": [
-					"a"
+					"a",
+					"b"
 				],
-				"body": "return 0.5*pwl((a-294.9637565320735+180)-360*Math.floor((a-294.9637565320735+180)/360)-180, [-34.44990198795349,0,-9.731475473157627,1,9.731475473157627,1,34.44990198795349,0],0);"
+				"body": "return b*0.5*pwl((a-294.9637565320735+180)-360*Math.floor((a-294.9637565320735+180)/360)-180, [-34.44990198795349,0,-9.731475473157627,1,9.731475473157627,1,34.44990198795349,0],0);"
 			},
 			"dymos": [
 				"cleanArea3"
@@ -250,13 +403,18 @@
 				{
 					"name": "Compass",
 					"@type": "Parameter"
+				},
+				{
+					"name": "cleanAmplitude",
+					"@type": "Parameter"
 				}
 			],
 			"function": {
 				"args": [
-					"a"
+					"a",
+					"b"
 				],
-				"body": "return 0.5*pwl((a-354+180)-360*Math.floor((a-354+180)/360)-180, [-53.13010235415598,0,-18.43494882292201,1,18.43494882292201,1,53.13010235415598,0],0);"
+				"body": "return b*0.5*pwl((a-354+180)-360*Math.floor((a-354+180)/360)-180, [-53.13010235415598,0,-18.43494882292201,1,18.43494882292201,1,53.13010235415598,0],0);"
 			},
 			"dymos": [
 				"cleanArea4"
@@ -268,13 +426,18 @@
 				{
 					"name": "Compass",
 					"@type": "Parameter"
+				},
+				{
+					"name": "cleanAmplitude",
+					"@type": "Parameter"
 				}
 			],
 			"function": {
 				"args": [
-					"a"
+					"a",
+					"b"
 				],
-				"body": "return 0.5*pwl((a-53.03624346792651+180)-360*Math.floor((a-53.03624346792651+180)/360)-180, [-34.44990198795349,0,-9.731475473157627,1,9.731475473157627,1,34.44990198795349,0],0);"
+				"body": "return b*0.5*pwl((a-53.03624346792651+180)-360*Math.floor((a-53.03624346792651+180)/360)-180, [-34.44990198795349,0,-9.731475473157627,1,9.731475473157627,1,34.44990198795349,0],0);"
 			},
 			"dymos": [
 				"cleanArea5"
@@ -297,9 +460,9 @@
 				"body": "return a;"
 			},
 			"dymos": [
-				"clean"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "cleanAmplitude"
 		},
 		{
 			"domainDims": [
@@ -317,9 +480,9 @@
 				"body": "return a;"
 			},
 			"dymos": [
-				"warped"
+				"beacons"
 			],
-			"range": "Amplitude"
+			"range": "warpedAmplitude"
 		}
 	]
 }

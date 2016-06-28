@@ -74,6 +74,12 @@ for (var i = 0; i < warpedSoundFiles.length; i++) {
 			{"@type":"Amplitude", "value":maxAmplitude}
 		]
 	});
+	dymo.mappings.push({
+		"domainDims":[{"name":"warpedAmplitude","@type":"Parameter"},{"name":"warpedArea"+i+"Amplitude","@type":"Parameter"}],
+		"function":{"args":["a","b"],"body":"return a*b;"},
+		"dymos":["warpedArea"+i],
+		"range":"Amplitude"
+	});
 }
 
 for (var i = 0; i < cleanSoundFiles.length; i++) {
@@ -100,8 +106,8 @@ for (var i = 0; i < cleanSoundFiles.length; i++) {
 	var rangeAngle = Math.atan((i==2 ? area3BeaconRange : areaBeaconRange)/r)*180/Math.PI;
 		
 	dymo.mappings.push({
-		"domainDims":[{"name":"Compass","@type":"Parameter"}],
-		"function":{"args":["a"],"body":"return "+maxAmplitude+"*pwl((a-"+heading+"+180)-360*Math.floor((a-"+heading+"+180)/360)-180, [-"+rangeAngle+",0,-"+closeAngle+",1,"+closeAngle+",1,"+rangeAngle+",0],0);"},
+		"domainDims":[{"name":"Compass","@type":"Parameter"},{"name":"cleanAmplitude","@type":"Parameter"}],
+		"function":{"args":["a","b"],"body":"return b*"+maxAmplitude+"*pwl((a-"+heading+"+180)-360*Math.floor((a-"+heading+"+180)/360)-180, [-"+rangeAngle+",0,-"+closeAngle+",1,"+closeAngle+",1,"+rangeAngle+",0],0);"},
 		"dymos":["cleanArea"+i],
 		"range":"Amplitude"
 	});
@@ -111,14 +117,14 @@ for (var i = 0; i < cleanSoundFiles.length; i++) {
 dymo.mappings.push({
 	"domainDims":[{"name":"Clean","@type":"Parameter","smooth":true,"average":3}],
 	"function":{"args":["a"],"body":"return a;"},
-	"dymos":["clean"],
-	"range":"Amplitude"
+	"dymos":["beacons"], // "clean"
+	"range":"cleanAmplitude" // "Amplitude"
 });
 dymo.mappings.push({
 	"domainDims":[{"name":"Dirty","@type":"Parameter","smooth":true,"average":3}],
 	"function":{"args":["a"],"body":"return a;"},
-	"dymos":["warped"],
-	"range":"Amplitude"
+	"dymos":["beacons"], // "warped"
+	"range":"warpedAmplitude" // "Amplitude"
 });
 
 //generate rendering
@@ -194,7 +200,7 @@ rendering["mappings"].push({
 });
 //add mappings for beacon areas
 for (var i = 0; i < warpedSoundFiles.length; i++) {
-	rendering["mappings"].push({
+	if (false) rendering["mappings"].push({
 		"domainDims":[{
 			"name":"beacon"+i,
 			"@type":"Beacon",
@@ -203,8 +209,8 @@ for (var i = 0; i < warpedSoundFiles.length; i++) {
 			"minor":beacons[i+1].minor
 		}],
 		"function":{"args":["a"],"body":"return pwl(a,["+areaBeaconClose+",1,"+(i==2 ? area3BeaconRange: areaBeaconRange)+",0],0);"},
-		"dymos":["warpedArea"+i],
-		"range":"Amplitude"
+		"dymos":["beacons"], // "warpedArea"+i
+		"range":"warpedArea"+i+"Amplitude" // "Amplitude"
 	});
 	rendering["mappings"].push({
 		"domainDims":[{
@@ -213,8 +219,8 @@ for (var i = 0; i < warpedSoundFiles.length; i++) {
 			"value":0
 		}],
 		"function":{"args":["a"],"body":"return a;"},
-		"dymos":["warpedArea"+i],
-		"range":"Amplitude"
+		"dymos":["beacons"], // "warpedArea"+i
+		"range":"warpedArea"+i+"Amplitude" // "Amplitude"
 	});
 }
 
