@@ -12,10 +12,8 @@ function BeaconControl(uuid, major, minor) {
 		null,
 		function() {},
 		null,
-		null,
-		true
+		null
 	);
-	//this.setAverageOf(3);
 	
 	this.startUpdate = function() {
  		// Note: non-standard function for beacon plugin - use https://github.com/cgreenhalgh/cordova-plugin-ibeacon
