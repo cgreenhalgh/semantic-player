@@ -124,6 +124,27 @@
 		{
 			"domainDims": [
 				{
+					"name": "beacon0",
+					"@type": "Beacon",
+					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
+					"major": 57811,
+					"minor": 32951
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return pwl(a,[1,1,4,0],0);"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "warpedArea0Amplitude"
+		},
+		{
+			"domainDims": [
+				{
 					"name": "track slider0",
 					"@type": "Slider",
 					"value": 0
@@ -139,6 +160,27 @@
 				"beacons"
 			],
 			"range": "warpedArea0Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "beacon1",
+					"@type": "Beacon",
+					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
+					"major": 63030,
+					"minor": 38015
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return pwl(a,[1,1,4,0],0);"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "warpedArea1Amplitude"
 		},
 		{
 			"domainDims": [
@@ -162,6 +204,27 @@
 		{
 			"domainDims": [
 				{
+					"name": "beacon2",
+					"@type": "Beacon",
+					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
+					"major": 22570,
+					"minor": 15614
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return pwl(a,[1,1,1.5,0],0);"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "warpedArea2Amplitude"
+		},
+		{
+			"domainDims": [
+				{
 					"name": "track slider2",
 					"@type": "Slider",
 					"value": 0
@@ -177,6 +240,27 @@
 				"beacons"
 			],
 			"range": "warpedArea2Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "beacon3",
+					"@type": "Beacon",
+					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
+					"major": 6286,
+					"minor": 31905
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return pwl(a,[1,1,4,0],0);"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "warpedArea3Amplitude"
 		},
 		{
 			"domainDims": [
@@ -200,6 +284,27 @@
 		{
 			"domainDims": [
 				{
+					"name": "beacon4",
+					"@type": "Beacon",
+					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
+					"major": 34762,
+					"minor": 8686
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return pwl(a,[1,1,4,0],0);"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "warpedArea4Amplitude"
+		},
+		{
+			"domainDims": [
+				{
 					"name": "track slider4",
 					"@type": "Slider",
 					"value": 0
@@ -215,6 +320,27 @@
 				"beacons"
 			],
 			"range": "warpedArea4Amplitude"
+		},
+		{
+			"domainDims": [
+				{
+					"name": "beacon5",
+					"@type": "Beacon",
+					"uuid": "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
+					"major": 34015,
+					"minor": 52180
+				}
+			],
+			"function": {
+				"args": [
+					"a"
+				],
+				"body": "return pwl(a,[1,1,4,0],0);"
+			},
+			"dymos": [
+				"beacons"
+			],
+			"range": "warpedArea5Amplitude"
 		},
 		{
 			"domainDims": [

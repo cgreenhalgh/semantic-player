@@ -215,7 +215,7 @@ rendering["mappings"].push({
 
 //add mappings for beacon areas
 for (var i = 0; i < warpedSoundFiles.length; i++) {
-	if (false) rendering["mappings"].push({
+	rendering["mappings"].push({
 		"domainDims":[{
 			"name":"beacon"+i,
 			"@type":"Beacon",
