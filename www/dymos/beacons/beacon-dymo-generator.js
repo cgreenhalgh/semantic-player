@@ -74,12 +74,24 @@ for (var i = 0; i < warpedSoundFiles.length; i++) {
 			{"@type":"Amplitude", "value":warpedMaxAmplitude[i]}
 		]
 	});
-	dymo.mappings.push({
-		"domainDims":[{"name":"warpedAmplitude","@type":"Parameter"},{"name":"warpedArea"+i+"Amplitude","@type":"Parameter"}],
-		"function":{"args":["a","b"],"body":"return a*b*"+warpedMaxAmplitude[i]+";"},
+	var mapping = {
+		"domainDims":[{"name":"warpedAmplitude","@type":"Parameter"}],
+		"function":{"args":["a"]}, //,"body":"return a*b*"+warpedMaxAmplitude[i]+"; 
 		"dymos":["warpedArea"+i],
 		"range":"Amplitude"
-	});
+	};
+	for (var j=0; j<warpedSoundFiles.length; j++) 
+		mapping["domainDims"].push({"name":"warpedArea"+j+"Amplitude","@type":"Parameter"});
+	for (var j=0; j<warpedSoundFiles.length; j++) 
+		mapping["function"]["args"].push("a"+j);
+	var body = "return (function(){var as=[";
+	for (var j=0; j<warpedSoundFiles.length; j++) 
+		body = body+"a"+j+(j+1<warpedSoundFiles.length ? ',': '');
+	body = body+"];as.sort(function(a,b){return b-a;});console.log('a"+i+"'+a"+i+"+', as='+as);if(a"+i+">=as["+Math.floor((warpedSoundFiles.length-1)/2)+"] &&"+
+	"(as[0]<0.99||a"+i+">0.99)){return a"+i+";"+
+	"}else return 0;})();"
+	mapping["function"]["body"] = body;
+	dymo.mappings.push(mapping);
 }
 
 for (var i = 0; i < cleanSoundFiles.length; i++) {
