@@ -5,14 +5,14 @@
 // The "upwards" reference heading is the heading of 2/B compared to magnetic north.
 
 var centerBeaconRange = 0.8; //distance in meters at which the center beacon activates clean mode
-var areaBeaconRange = 4; //distance in meters at which the audio associated with the beacon is no longer audible
-var areaBeaconClose = 1; // distance in meters up to which audio associated with beacon is full volume
-var area3BeaconRange = 1.5; // special case short range for beacon 3
+var areaBeaconRange = [4, 4, 1.5, 4, 4, 4]; //distance in meters at which the audio associated with the beacon is no longer audible
+var areaBeaconClose = [1, 1,   1, 1, 1, 1]; // distance in meters up to which audio associated with beacon is full volume
 var width = 10; // width of room (left/right) in metres
 var depth = 6; // depth of room (top/bottom)
 var referenceHeading = 174; // heading of "top-centre" (2/B), degrees
 
-var maxAmplitude = 0.5; //maximum amplitude at which each clip is played back
+var warpedMaxAmplitude = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5]; //maximum amplitude at which each clip is played back
+var cleanMaxAmplitude  = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5]; //maximum amplitude at which each clip is played back
 var uuid = "f7826da6-4fa2-4e98-8024-bc5b71e0893e";
 var beacons = [
 	{"major":49933,"minor":16629}, // 'centre', SzyX //this one is taken as the center beacon
@@ -71,12 +71,12 @@ for (var i = 0; i < warpedSoundFiles.length; i++) {
 		"source":warpedSoundFiles[i],
 		"parameters":[
 			{"@type":"Loop", "value":1},
-			{"@type":"Amplitude", "value":maxAmplitude}
+			{"@type":"Amplitude", "value":warpedMaxAmplitude[i]}
 		]
 	});
 	dymo.mappings.push({
 		"domainDims":[{"name":"warpedAmplitude","@type":"Parameter"},{"name":"warpedArea"+i+"Amplitude","@type":"Parameter"}],
-		"function":{"args":["a","b"],"body":"return a*b;"},
+		"function":{"args":["a","b"],"body":"return a*b*"+warpedMaxAmplitude[i]+";"},
 		"dymos":["warpedArea"+i],
 		"range":"Amplitude"
 	});
@@ -102,12 +102,13 @@ for (var i = 0; i < cleanSoundFiles.length; i++) {
 	var heading = referenceHeading + 360 - Math.atan2(y,x)*180/Math.PI;
 	heading = heading-360*Math.floor(heading/360);
 	// offset angles
-	var closeAngle = Math.atan(areaBeaconClose/r)*180/Math.PI;
-	var rangeAngle = Math.atan((i==2 ? area3BeaconRange : areaBeaconRange)/r)*180/Math.PI;
+	// HACK
+	var closeAngle = 360*0.25/cleanSoundFiles.length; // Math.atan(areaBeaconClose[i]/r)*180/Math.PI;
+	var rangeAngle = 360*0.75/cleanSoundFiles.length; // Math.atan(areaBeaconRange[i])/r)*180/Math.PI;
 		
 	dymo.mappings.push({
 		"domainDims":[{"name":"Compass","@type":"Parameter"},{"name":"cleanAmplitude","@type":"Parameter"}],
-		"function":{"args":["a","b"],"body":"return b*"+maxAmplitude+"*pwl((a-"+heading+"+180)-360*Math.floor((a-"+heading+"+180)/360)-180, [-"+rangeAngle+",0,-"+closeAngle+",1,"+closeAngle+",1,"+rangeAngle+",0],0);"},
+		"function":{"args":["a","b"],"body":"return b*"+cleanMaxAmplitude[i]+"*pwl((a-"+heading+"+180)-360*Math.floor((a-"+heading+"+180)/360)-180, [-"+rangeAngle+",0,-"+closeAngle+",1,"+closeAngle+",1,"+rangeAngle+",0],0);"},
 		"dymos":["cleanArea"+i],
 		"range":"Amplitude"
 	});
@@ -222,7 +223,7 @@ for (var i = 0; i < warpedSoundFiles.length; i++) {
 			"major":beacons[i+1].major,
 			"minor":beacons[i+1].minor
 		}],
-		"function":{"args":["a"],"body":"return pwl(a,["+areaBeaconClose+",1,"+(i==2 ? area3BeaconRange: areaBeaconRange)+",0],0);"},
+		"function":{"args":["a"],"body":"return pwl(a,["+areaBeaconClose[i]+",1,"+areaBeaconRange[i]+",0],0);"},
 		"dymos":["beacons"], // "warpedArea"+i
 		"range":"warpedArea"+i+"Amplitude" // "Amplitude"
 	});
