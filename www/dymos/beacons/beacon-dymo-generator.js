@@ -11,6 +11,9 @@ var width = 10; // width of room (left/right) in metres
 var depth = 6; // depth of room (top/bottom)
 var referenceHeading = 174; // heading of "top-centre" (2/B), degrees
 
+var smoothBeacons = false; //true ?
+var averageBeacons = 1; // 3 ?
+
 var warpedMaxAmplitude = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5]; //maximum amplitude at which each clip is played back
 var cleanMaxAmplitude  = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5]; //maximum amplitude at which each clip is played back
 var uuid = "f7826da6-4fa2-4e98-8024-bc5b71e0893e";
@@ -84,10 +87,10 @@ for (var i = 0; i < warpedSoundFiles.length; i++) {
 		mapping["domainDims"].push({"name":"warpedArea"+j+"Amplitude","@type":"Parameter"});
 	for (var j=0; j<warpedSoundFiles.length; j++) 
 		mapping["function"]["args"].push("a"+j);
-	var body = "return (function(){var as=[";
+	var body = "return a*(function(){var as=[";
 	for (var j=0; j<warpedSoundFiles.length; j++) 
 		body = body+"a"+j+(j+1<warpedSoundFiles.length ? ',': '');
-	body = body+"];as.sort(function(a,b){return b-a;});console.log('a"+i+"'+a"+i+"+', as='+as);if(a"+i+">=as["+Math.floor((warpedSoundFiles.length-1)/2)+"] &&"+
+	body = body+"];as.sort(function(a,b){return b-a;});/*console.log('a"+i+"'+a"+i+"+', as='+as);*/if(a"+i+">=as["+Math.floor((warpedSoundFiles.length-1)/2)+"] &&"+
 	"(as[0]<0.99||a"+i+">0.99)){return a"+i+";"+
 	"}else return 0;})();"
 	mapping["function"]["body"] = body;
@@ -227,7 +230,7 @@ rendering["mappings"].push({
 
 //add mappings for beacon areas
 for (var i = 0; i < warpedSoundFiles.length; i++) {
-	rendering["mappings"].push({
+	var mapping = {
 		"domainDims":[{
 			"name":"beacon"+i,
 			"@type":"Beacon",
@@ -238,7 +241,12 @@ for (var i = 0; i < warpedSoundFiles.length; i++) {
 		"function":{"args":["a"],"body":"return pwl(a,["+areaBeaconClose[i]+",1,"+areaBeaconRange[i]+",0],0);"},
 		"dymos":["beacons"], // "warpedArea"+i
 		"range":"warpedArea"+i+"Amplitude" // "Amplitude"
-	});
+	};
+	if (smoothBeacons)
+		mapping["domainDims"][0]["smooth"] = true;
+	if (averageBeacons && averageBeacons>1) 
+		mapping["domainDims"][0]["average"] = averageBeacons;
+	rendering["mappings"].push(mapping);
 	rendering["mappings"].push({
 		"domainDims":[{
 			"name":"track slider"+i,

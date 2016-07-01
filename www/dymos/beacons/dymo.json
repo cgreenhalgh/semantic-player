@@ -232,7 +232,7 @@
 					"a4",
 					"a5"
 				],
-				"body": "return (function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});console.log('a0'+a0+', as='+as);if(a0>=as[2] &&(as[0]<0.99||a0>0.99)){return a0;}else return 0;})();"
+				"body": "return a*(function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});/*console.log('a0'+a0+', as='+as);*/if(a0>=as[2] &&(as[0]<0.99||a0>0.99)){return a0;}else return 0;})();"
 			},
 			"dymos": [
 				"warpedArea0"
@@ -280,7 +280,7 @@
 					"a4",
 					"a5"
 				],
-				"body": "return (function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});console.log('a1'+a1+', as='+as);if(a1>=as[2] &&(as[0]<0.99||a1>0.99)){return a1;}else return 0;})();"
+				"body": "return a*(function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});/*console.log('a1'+a1+', as='+as);*/if(a1>=as[2] &&(as[0]<0.99||a1>0.99)){return a1;}else return 0;})();"
 			},
 			"dymos": [
 				"warpedArea1"
@@ -328,7 +328,7 @@
 					"a4",
 					"a5"
 				],
-				"body": "return (function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});console.log('a2'+a2+', as='+as);if(a2>=as[2] &&(as[0]<0.99||a2>0.99)){return a2;}else return 0;})();"
+				"body": "return a*(function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});/*console.log('a2'+a2+', as='+as);*/if(a2>=as[2] &&(as[0]<0.99||a2>0.99)){return a2;}else return 0;})();"
 			},
 			"dymos": [
 				"warpedArea2"
@@ -376,7 +376,7 @@
 					"a4",
 					"a5"
 				],
-				"body": "return (function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});console.log('a3'+a3+', as='+as);if(a3>=as[2] &&(as[0]<0.99||a3>0.99)){return a3;}else return 0;})();"
+				"body": "return a*(function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});/*console.log('a3'+a3+', as='+as);*/if(a3>=as[2] &&(as[0]<0.99||a3>0.99)){return a3;}else return 0;})();"
 			},
 			"dymos": [
 				"warpedArea3"
@@ -424,7 +424,7 @@
 					"a4",
 					"a5"
 				],
-				"body": "return (function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});console.log('a4'+a4+', as='+as);if(a4>=as[2] &&(as[0]<0.99||a4>0.99)){return a4;}else return 0;})();"
+				"body": "return a*(function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});/*console.log('a4'+a4+', as='+as);*/if(a4>=as[2] &&(as[0]<0.99||a4>0.99)){return a4;}else return 0;})();"
 			},
 			"dymos": [
 				"warpedArea4"
@@ -472,7 +472,7 @@
 					"a4",
 					"a5"
 				],
-				"body": "return (function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});console.log('a5'+a5+', as='+as);if(a5>=as[2] &&(as[0]<0.99||a5>0.99)){return a5;}else return 0;})();"
+				"body": "return a*(function(){var as=[a0,a1,a2,a3,a4,a5];as.sort(function(a,b){return b-a;});/*console.log('a5'+a5+', as='+as);*/if(a5>=as[2] &&(as[0]<0.99||a5>0.99)){return a5;}else return 0;})();"
 			},
 			"dymos": [
 				"warpedArea5"
